@@ -61,9 +61,22 @@ def authenticate(username, password):
 		time.sleep(random.randint(2,8))
 		
 		driver.get('https://code.earthengine.google.com')
-		content = '//div[@id=":1e"]'
-		waitPageLoading(method='xpath', content=content, timeout=300)
-		time.sleep(random.randint(2,8))
+		try:
+			content = '//div[@data-identifier="%s"]' %username
+			waitPageLoading(method='xpath', content=content, timeout=300)
+			driver.find_element_by_xpath(content).click()
+			time.sleep(random.randint(2,8))
+			
+			content = '//*[@id="submit_approve_access"]'
+			waitPageLoading(method='xpath', content=content, timeout=300)
+			driver.find_element_by_xpath(content).click()
+			time.sleep(random.randint(2,8))
+		except:
+			pass
+		finally:
+			content = '//div[@id=":1e"]'
+			waitPageLoading(method='xpath', content=content, timeout=300)
+			time.sleep(random.randint(2,8))
 	except Exception as e:
 		print(e)
 		driver.quit()
