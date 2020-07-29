@@ -1,3 +1,6 @@
 [submodule "python/packages/adaptive-curvefitting"]
 	path = python/packages/adaptive-curvefitting
 	url = https://github.com/longavailable/adaptive-curvefitting.git
+[submodule "python/packages/voronoi-diagram-for-polygons"]
+	path = python/packages/voronoi-diagram-for-polygons
+	url = https://github.com/longavailable/voronoi-diagram-for-polygons.git
