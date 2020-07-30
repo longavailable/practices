@@ -4,3 +4,6 @@
 [submodule "python/packages/voronoi-diagram-for-polygons"]
 	path = python/packages/voronoi-diagram-for-polygons
 	url = https://github.com/longavailable/voronoi-diagram-for-polygons.git
+[submodule "python/packages/python-toolbox"]
+	path = python/packages/python-toolbox
+	url = https://github.com/longavailable/python-toolbox
