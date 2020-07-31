@@ -4,3 +4,6 @@
 [submodule "python/packages/adaptive-curvefitting"]
 	path = python/packages/adaptive-curvefitting
 	url = https://github.com/longavailable/adaptive-curvefitting.git
+[submodule "python/packages/python-toolbox"]
+	path = python/packages/python-toolbox
+	url = https://github.com/longavailable/python-toolbox.git
