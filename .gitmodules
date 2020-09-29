@@ -7,6 +7,3 @@
 [submodule "python/packages/python-toolbox"]
 	path = python/packages/python-toolbox
 	url = https://github.com/longavailable/python-toolbox.git
-[submodule "python/requests/population-and-gdp-crawler"]
-	path = python/requests/population-and-gdp-crawler
-	url = https://github.com/longavailable/population-and-gdp-crawler.git
