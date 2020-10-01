@@ -10,3 +10,6 @@
 [submodule "python/requests/population-and-gdp-crawler"]
 	path = python/requests/population-and-gdp-crawler
 	url = https://github.com/longavailable/population-and-gdp-crawler.git
+[submodule "html/maps-api-test"]
+	path = html/maps-api-test
+	url = https://github.com/longavailable/maps-api-test.git
