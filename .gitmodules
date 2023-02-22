@@ -13,3 +13,6 @@
 [submodule "html/maps-api-test"]
 	path = html/maps-api-test
 	url = https://github.com/longavailable/maps-api-test.git
+[submodule "python/requests/hydrodata-crawler"]
+	path = python/requests/hydrodata-crawler
+	url = https://github.com/longavailable/hydrodata-crawler.git
