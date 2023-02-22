@@ -26,7 +26,7 @@ chrome_options.add_experimental_option("prefs", prefs)
 browser = webdriver.Chrome(options=chrome_options)
 #browser = webdriver.Chrome('/mnt/c/Windows/System32/chromedriver', options=chrome_options)	#for my wsl
 
-url = 'https://newids.seu.edu.cn/authserver/login?service=http%3A%2F%2Fehall.seu.edu.cn%2Fqljfwapp2%2Fsys%2FlwReportEpidemicSeu%2Findex.do%3Ft_s%3D1588030135809%26amp_sec_version_%3D1%26gid_%3DR2V3dzJPY2FPeWJYbGk5dXZ0UXdSSjFuODRONkpPTnFuUzQrVXM1Vi9lV3pPS1JQVlRiSERqMkhTVVBaZ0lzWW9OUERPMWkrZnlYQlZpL2U1OVN6elE9PQ%26EMAP_LANG%3Dzh%26THEME%3Dindigo%23%2FdailyReport'
+url = 'http://ehall.seu.edu.cn/qljfwapp2/sys/lwReportEpidemicSeu/index.do?t_s=1660910003921&amp_sec_version_=1&gid_=ejE2V3M5YW82WHQ4MUNuQWEwRkd5b1JYWGZYOTR0bnhkVVJJbTltTzR5dWd5YUZ5NmJNZUJ6Yzh4NnVzMnRGa3M5TWpnQUxPcXN6Sk1VQTJKVm5leHc9PQ&EMAP_LANG=zh&THEME=indigo#/dailyReport'
 
 def waitPageLoading(method='xpath', content=None, timeout=300):
 	if not content:
