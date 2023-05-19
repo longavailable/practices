@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-* Updated on 2020/05/24
+* Updated on 2023/05/19
 * python3
 **
 * cookie for 'SACSID' will expire in 14 days. It is the shortest lifetime in those important keys.
@@ -11,11 +11,13 @@ import time, datetime
 import os, sys, json
 import random
 from selenium import webdriver
-from selenium.webdriver import Chrome
+#from selenium.webdriver import Chrome
+import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 
 def waitPageLoading(method='xpath', content=None, timeout=300):
@@ -35,7 +37,8 @@ def authenticate(username, password):
 	options = webdriver.ChromeOptions()
 	#options.add_argument('--headless')
 	options.add_argument('--disable-gpu')
-	driver = Chrome(ChromeDriverManager().install(), options=options)
+	#driver = Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+	driver = uc.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
 	try:
 		# Using stackoverflow for third-party login & redirect
@@ -44,17 +47,18 @@ def authenticate(username, password):
 		content = '//*[@id="openid-buttons"]/button[1]'
 		waitPageLoading(method='xpath', content=content, timeout=300)
 		time.sleep(random.randint(2,8))
-		driver.find_element_by_xpath('//*[@id="openid-buttons"]/button[1]').click()
+		driver.find_element(By.XPATH, '//*[@id="openid-buttons"]/button[1]').click()
 		
 		content = '//input[@type="email" or @id="identifierId"]'
 		waitPageLoading(method='xpath', content=content, timeout=300)
 		time.sleep(random.randint(2,8))
-		driver.find_element_by_xpath(content).send_keys(username + Keys.RETURN)
+		driver.find_element(By.XPATH, content).send_keys(username + Keys.RETURN)
 		
 		content = '//div[@id="password"]//input[@type="password"]'
+		#content = '//input[@type="password"]'
 		waitPageLoading(method='xpath', content=content, timeout=300)
 		time.sleep(random.randint(2,8))
-		driver.find_element_by_xpath(content).send_keys(password + Keys.RETURN)
+		driver.find_element(By.XPATH, content).send_keys(password + Keys.RETURN)
 		
 		content = '//*[@id="content"]'
 		waitPageLoading(method='xpath', content=content, timeout=300)
@@ -64,12 +68,12 @@ def authenticate(username, password):
 		try:
 			content = '//div[@data-identifier="%s"]' %username
 			waitPageLoading(method='xpath', content=content, timeout=300)
-			driver.find_element_by_xpath(content).click()
+			driver.find_element(By.XPATH, content).click()
 			time.sleep(random.randint(2,8))
 			
 			content = '//*[@id="submit_approve_access"]'
 			waitPageLoading(method='xpath', content=content, timeout=300)
-			driver.find_element_by_xpath(content).click()
+			driver.find_element(By.XPATH, content).click()
 			time.sleep(random.randint(2,8))
 		except:
 			pass
